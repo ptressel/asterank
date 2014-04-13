@@ -646,12 +646,12 @@
       }, 0);
     }
     else {
-      $.getJSON('http://asterank.com/api/rankings?sort_by=' + sort + '&limit='
+      $.getJSON('http://www.asterank.com/api/rankings?sort_by=' + sort + '&limit='
           + (using_webgl ? MAX_NUM_ORBITS : CANVAS_NUM_ORBITS)
           + '&orbits_only=true', function(data) {
             me.processAsteroidRankings(data);
-      }).error(function() {
-        alert("Sorry, we've encountered an error and we can't load the simulation");
+      }).error(function(jqXhr, textStatus, error) {
+        alert("Error: " + testStatus + ", " + error + " responseText: " + jqXhr.responseText);
         mixpanel.track('3d error', {type: 'json'});
       });
     }

@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+	<head>
+		<title>3D Interactive Asteroid Space Visualization - Asterank</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="static/css/full3d.css" rel="stylesheet" />
+    <script>
+      window.passthrough_vars = {
+      };
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	</head>
+<body>
+  <noscript>Sorry, this page requires Canvas/WebGL, so you'll need to enable JavaScript.</noscript>
+  <script> 
+    $(function(){
+      $("#includedContent").load("templates/blocks/shaders.html"); 
+    });
+  </script>
+  <div id="show_sidebar_container" class="sidebar">
+    <span id="show_sidebar" style="float:right;cursor:pointer;">+</span>
+  </div>
+  <div id="sidebar" class="sidebar">
+    <span id="hide_sidebar" style="float:right;cursor:pointer;">-</span>
+
+    <hr/>
+    <div id="objects-of-interest-container" style="text-align:center;display:none;">
+      <span>Significant Objects<br>&amp; estimated value</span>
+      <table id="objects-of-interest">
+        <tr id="sun-selector" data-full-name="sun" style="background-color:green;">
+          <td colspan="2"><a href="#">Sun</a> (default view)</td>
+        </tr>
+        <tr id="earth-selector" data-full-name="earth">
+          <td colspan="2"><a href="#">Earth</a></td>
+        </tr>
+        <tr id="da14-selector" data-full-name="2012 DA14">
+          <td><a href="#">2012 DA14</a></td>
+          <td>$665 million</td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+	<!-- three.js container -->
+  <div id="container"></div>
+	<!-- info on screen display -->
+  <div id="loading">
+    <!--<img src="images/loader.gif"/> Loading <span id="loading-text"></span>...-->
+    <img src="static/img/loader.gif"/> Loading asteroids from database...
+  </div>
+  <div id="not-supported" style="display:none;">
+    <p>
+    <strong>Sorry, your browser or graphics card doesn't support webgl.  Most features of the simulation will not be available.</strong>
+    </p>
+    <p>
+    You may be able to see the simulation if you..
+    </p>
+    <h2><a href="http://google.com/chrome">Get Chrome</a><br>or<br><a href="http://getfirefox.com">Get Firefox</a></h2>
+    <p>
+    <input type="submit" onClick="window.location='/templates/notsupported.html';" value="See video preview (recommended)"/><br>
+    <input type="submit" onClick="$('#not-supported').hide();return false;" value="Ignore for now"/>
+    </p>
+  </div>
+	<div id="info">
+    <div id="caption-container">
+      <div id="main-caption" class="top">
+      </div>
+      <div id="other-caption" class="top">
+      </div>
+    </div>
+		<div class="bottom" id="inlineDoc" >
+      <span style="font-size:12px;color:#fff">
+      <strong>Rotate</strong>: left click + drag; <strong>Pan</strong>: right click + drag
+      <br>
+      <strong>Zoom</strong>: scroll/middle click + drag; <strong>Fullscreen</strong>: press f
+      <br>
+      Location of all objects shown is scientifically accurate.</span>
+		</div>
+	</div>
+  <!--
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r58/three.min.js"></script>
+  -->
+  <script type="text/javascript" src="static/js/3d/lib/three.js/three.min.js"></script>
+  <script type="text/javascript" src="static/js/3d/lib/three.js/Detector.js"></script>
+  <script type="text/javascript" src="static/js/3d/lib/three.js/TrackballControls.js"></script>
+  <script type="text/javascript" src="static/js/3d/lib/threex/THREEx.WindowResize.js"></script>
+  <script type="text/javascript" src="static/js/3d/lib/threex/THREEx.FullScreen.js"></script>
+  <script type="text/javascript" src="static/js/3d/lib/dat.gui.js"></script>
+  <script type="text/javascript" src="static/js/3d/ellipse.js"></script>
+  <script type="text/javascript" src="static/js/3d/ephemeris.js"></script>
+  <script type="text/javascript" src="static/js/3d/util.js"></script>
+  <script type="text/javascript" src="static/js/3d/mainlocal.js"></script>
+  <script type="text/javascript" src="static/js/3d/full3d_loader.js"></script>
+  <script type="text/javascript">
+  mixpanel = {track: function() {}};
+  </script>
+
+</body>
+</html>
